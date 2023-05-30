@@ -47,11 +47,40 @@
 // 3 -> 1, 8, 27
 // 5 -> 1, 8, 27, 64, 125
 
+// Console.Clear();
+// Console.Write("Ведите число: ");
+// int x = int.Parse(Console.ReadLine()!);
+// for (int i = 1; i <= x; i++)
+//     {
+//     double s = Math.Pow(i, 3);
+//     Console.Write ($" {s}");
+//     }
+
+// Дополнительная задача
+// Входные данные
+// Первая строка входного файла INPUT.TXT содержит целое число N (3 ≤ N ≤ 1000) – количество кустов черники. 
+// Вторая строка содержит N целых положительных чисел a1, a2, ..., aN – число ягод черники, растущее на соответствующем кусте. 
+// Все ai не превосходят 1000.
+
 Console.Clear();
-Console.Write("Ведите число: ");
-int x = int.Parse(Console.ReadLine()!);
-for (int i = 1; i <= x; i++)
+Console.Write("Введите количество кустов: ");
+int n = int.Parse(Console.ReadLine()!);
+while(n > 1000 || n < 3)
+     {
+     Console.Write("Вы ошиблись! \nВведите от 3 до 1000 число: ");
+     n = int.Parse(Console.ReadLine()!);
+     }
+int[] array = new int[n];
+int summa = 0;
+for(int i = 0; i < n; i++)
     {
-    double s = Math.Pow(i, 3);
-    Console.Write ($" {s}");
+    Console.Write($"Введите количество ягод на кусте {i+1}: ");
+    array[i] = int.Parse(Console.ReadLine()!);
+    while(array[i] > 1000)
+        {
+        Console.Write("Вы ошиблись! \nВведите  до 1000 ягод: ");
+        array[i] = int.Parse(Console.ReadLine()!);
+        }
+    summa = summa + array[i];
     }
+Console.Write($"Cумма ягод равна: {summa}");
